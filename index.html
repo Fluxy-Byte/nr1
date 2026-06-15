@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Apresentação</title>
+
+    <style>
+        body {
+            margin: 0;
+            overflow: hidden;
+            background: #111;
+        }
+
+        iframe {
+            width: 100vw;
+            height: 100vh;
+            border: none;
+        }
+
+        .controls {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 999;
+        }
+
+        button {
+            padding: 10px 20px;
+            margin-left: 10px;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <iframe id="slide"></iframe>
+
+    <div class="controls">
+        <button onclick="anterior()">← Anterior</button>
+        <button onclick="proximo()">Próximo →</button>
+    </div>
+
+    <script>
+
+        let slides = [];
+        let atual = 0;
+
+        fetch("manifest.json")
+            .then(r => r.json())
+            .then(manifest => {
+
+                slides = manifest.playlist;
+
+                carregarSlide(0);
+
+            });
+
+        function carregarSlide(index) {
+
+            if (index < 0 || index >= slides.length) return;
+
+            atual = index;
+
+            document.getElementById("slide").src = slides[index];
+        }
+
+        function proximo() {
+            carregarSlide(atual + 1);
+        }
+
+        function anterior() {
+            carregarSlide(atual - 1);
+        }
+
+        document.addEventListener("keydown", e => {
+
+            if (e.key === "ArrowRight") {
+                proximo();
+            }
+
+            if (e.key === "ArrowLeft") {
+                anterior();
+            }
+
+        });
+
+    </script>
+
+</body>
+
+</html>

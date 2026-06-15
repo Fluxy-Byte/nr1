@@ -1,0 +1,31 @@
+{
+    "schemaVersion": "1.0",
+    "format": "html",
+    "metadata": {
+        "title": "NR-1 e Gestão de Riscos Psicossociais — Gamefic",
+        "description": "Apresentação institucional/comercial Gamefic NR-1 — diagnóstico, monitoramento e plano de ação para conformidade com a atualização da NR-1 (maio/2026).",
+        "author": "Gamefic em parceria com Rachel Amancio"
+    },
+    "canvas": {
+        "width": 1920,
+        "height": 1080
+    },
+    "playlist": [
+        "slides/01-abertura.html",
+        "slides/02-o-que-e-nr1.html",
+        "slides/03-conceitos-gro-pgr.html",
+        "slides/04-13-fatores.html",
+        "slides/05-linha-do-tempo.html",
+        "slides/06-o-que-mudou.html",
+        "slides/07-prazos-multas.html",
+        "slides/08-dados-brasil.html",
+        "slides/09-despreparo-mercado.html",
+        "slides/10-solucao-gamefic.html",
+        "slides/11-pilar-diagnostico.html",
+        "slides/12-pilar-mapa-calor.html",
+        "slides/13-pilar-relatorio-acao.html",
+        "slides/14-rachel-amancio.html",
+        "slides/15-politica-comercial.html",
+        "slides/16-cta-final.html"
+    ]
+}

@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-theme="light" style="">
+
+<head>
+    <meta charset="utf-8">
+    <title>12 — Pilar 2: Mapa de Calor</title>
+    <link rel="stylesheet" href="../assets/theme.css">
+    <style>
+        .slide-container {
+            background: var(--bg-dark);
+            color: var(--text-light);
+        }
+
+        /* Heatmap cells */
+        .heat-cell {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            font-family: 'Space Grotesk', sans-serif;
+            color: #0a0a1f;
+            font-weight: 700;
+            border-radius: 4px;
+            height: 48px;
+            line-height: 1;
+        }
+
+        .heat-cell .v {
+            font-size: 18px;
+        }
+
+        .heat-cell .lbl {
+            font-size: 9px;
+            font-weight: 600;
+            opacity: 0.78;
+            margin-top: 2px;
+            letter-spacing: 0.02em;
+        }
+
+        .c-control {
+            background: #1fbf6a;
+        }
+
+        .c-atencao {
+            background: #f3c30f;
+        }
+
+        .c-moderado {
+            background: #ff8a1a;
+        }
+
+        .c-critico {
+            background: #e3393a;
+            color: #fff;
+        }
+
+        .row-label {
+            font-size: 13px;
+            color: rgba(255, 255, 255, 0.78);
+            padding-right: 12px;
+            text-align: right;
+            line-height: 1.2;
+        }
+
+        .col-label {
+            font-size: 12px;
+            color: rgba(255, 255, 255, 0.55);
+            text-align: center;
+            font-weight: 600;
+            letter-spacing: .04em;
+            text-transform: uppercase;
+            padding-bottom: 8px;
+        }
+    </style>
+</head>
+
+<body style="user-select: none;">
+    <div class="slide-container" data-screen-label="12 Mapa de calor"
+        style="position:relative; width:1920px; height:1080px; overflow:hidden;">
+
+        <!-- bg -->
+        <div data-object="true" data-object-type="shape"
+            style="position:absolute; left:0; top:0; width:1920px; height:1080px; z-index:1;
+       background-image: radial-gradient(circle at 1px 1px, rgba(255,255,255,0.04) 1px, transparent 0); background-size: 44px 44px;"></div>
+        <div data-object="true" data-object-type="shape" style="position:absolute; left:-200px; top:-200px; width:700px; height:700px; z-index:1;
+       background: radial-gradient(circle, rgba(0,229,255,0.18), transparent 60%);"></div>
+        <div data-object="true" data-object-type="shape" style="position:absolute; right:-200px; bottom:-200px; width:700px; height:700px; z-index:1;
+       background: radial-gradient(circle, rgba(179,71,255,0.16), transparent 60%);"></div>
+
+        <div data-object="true" data-object-type="shape" style="position:absolute; left:96px; top:60px; z-index:10;">
+            <img class="logo-gamefic" src="../assets/logo.jpeg" alt="Gamefic">
+        </div>
+        <div data-object="true" data-object-type="textbox"
+            style="position:absolute; right:96px; top:78px; z-index:10; text-align:right;"
+            id="fabric-obj-0-1781543257027">
+            <span
+                style="font-family:'Space Grotesk'; font-size:14px; letter-spacing:.18em; text-transform:uppercase; color:var(--text-light-3);">12
+                / 16 · Pilar 02</span>
+        </div>
+
+        <div data-object="true" data-object-type="textbox"
+            style="position:absolute; left:96px; top:170px; width:1500px; z-index:10;" id="fabric-obj-1-1781543257027">
+            <span class="eyebrow on-dark">Pilar 02 · monitoramento</span>
+        </div>
+        <div data-object="true" data-object-type="textbox"
+            style="position:absolute; left:96px; top:215px; width:1700px; z-index:10;" id="fabric-obj-2-1781543257027">
+            <h1
+                style="margin:0; font-family:'Space Grotesk'; font-weight:700; font-size:74px; line-height:1.04; letter-spacing:-0.025em; color:#fff;">
+                Painel NR-1 · <span
+                    style="background:linear-gradient(90deg,var(--neon-cyan),var(--neon-green)); -webkit-background-clip:text; background-clip:text; color:transparent;">Mapa
+                    de Calor</span>
+            </h1>
+        </div>
+
+        <!-- Dashboard mockup -->
+        <div data-object="true" data-object-type="shape" style="position:absolute; left:96px; top:370px; width:1380px; height:640px; z-index:5;
+       background:linear-gradient(180deg,#0e0e2e,#080819); border:1px solid rgba(255,255,255,0.10); border-radius:24px;
+       box-shadow: 0 40px 90px -30px rgba(0,0,0,0.5);" id="fabric-obj-3-1781543257027">
+        </div>
+
+        <!-- Dashboard header bar -->
+        <div data-object="true" data-object-type="textbox"
+            style="position:absolute; left:128px; top:402px; width:1316px; z-index:10;" id="fabric-obj-4-1781543257027">
+            <div
+                style="display:flex; justify-content:space-between; align-items:center; padding-bottom:14px; border-bottom:1px solid rgba(255,255,255,0.08);">
+                <div>
+                    <div style="font-family:'Space Grotesk'; font-size:20px; font-weight:700; color:#fff;">Painel NR-1 ·
+                        Gestão de Riscos Psicossociais</div>
+                    <div style="font-size:13px; color:var(--text-light-3); margin-top:3px;">Visão integrada do
+                        monitoramento organizacional · ações preventivas para a saúde ocupacional</div>
+                </div>
+                <div style="display:flex; gap:10px; align-items:center;">
+                    <span style="font-size:12px; color:var(--text-light-3);">Atualizado há alguns segundos</span>
+                    <span
+                        style="padding:6px 12px; background:linear-gradient(135deg,var(--neon-magenta),var(--neon-blue)); border-radius:8px; font-family:'Space Grotesk'; font-size:13px; font-weight:600; color:#fff;">Relatório
+                        de exportação</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- KPI Row -->
+        <div data-object="true" data-object-type="textbox"
+            style="position:absolute; left:128px; top:482px; width:1316px; z-index:10;" id="fabric-obj-5-1781543257027">
+            <div style="display:grid; grid-template-columns: repeat(5,1fr); gap:12px;">
+                <div
+                    style="background:rgba(255,255,255,0.04); border:1px solid rgba(255,255,255,0.08); border-radius:12px; padding:14px 16px;">
+                    <div style="font-size:11px; color:var(--text-light-3); letter-spacing:.06em;">Tempo médio de
+                        resposta</div>
+                    <div
+                        style="font-family:'Space Grotesk'; font-size:28px; font-weight:700; color:#fff; margin-top:6px;">
+                        02:56</div>
+                    <div style="font-size:11px; color:var(--neon-cyan); margin-top:2px;">engajado</div>
+                </div>
+                <div
+                    style="background:rgba(255,255,255,0.04); border:1px solid rgba(255,255,255,0.08); border-radius:12px; padding:14px 16px;">
+                    <div style="font-size:11px; color:var(--text-light-3); letter-spacing:.06em;">Funcionários
+                        analisados</div>
+                    <div
+                        style="font-family:'Space Grotesk'; font-size:28px; font-weight:700; color:#fff; margin-top:6px;">
+                        15</div>
+                    <div style="font-size:11px; color:var(--neon-green); margin-top:2px;">94% da base</div>
+                </div>
+                <div
+                    style="background:rgba(255,255,255,0.04); border:1px solid rgba(255,255,255,0.08); border-radius:12px; padding:14px 16px;">
+                    <div style="font-size:11px; color:var(--text-light-3); letter-spacing:.06em;">Áreas críticas</div>
+                    <div
+                        style="font-family:'Space Grotesk'; font-size:28px; font-weight:700; color:#fff; margin-top:6px;">
+                        0</div>
+                    <div style="font-size:11px; color:var(--neon-green); margin-top:2px;">0% da base · sem crise</div>
+                </div>
+                <div
+                    style="background:rgba(255,255,255,0.04); border:1px solid rgba(255,255,255,0.08); border-radius:12px; padding:14px 16px;">
+                    <div style="font-size:11px; color:var(--text-light-3); letter-spacing:.06em;">Evolução do período
+                    </div>
+                    <div
+                        style="font-family:'Space Grotesk'; font-size:28px; font-weight:700; color:#fff; margin-top:6px;">
+                        0%</div>
+                    <div style="font-size:11px; color:var(--neon-cyan); margin-top:2px;">risco reduzido</div>
+                </div>
+                <div
+                    style="background:rgba(255,255,255,0.04); border:1px solid rgba(255,255,255,0.08); border-radius:12px; padding:14px 16px;">
+                    <div style="font-size:11px; color:var(--text-light-3); letter-spacing:.06em;">Pontuação psicossocial
+                    </div>
+                    <div
+                        style="font-family:'Space Grotesk'; font-size:28px; font-weight:700; color:#fff; margin-top:6px;">
+                        73,08</div>
+                    <div style="font-size:11px; color:var(--neon-green); margin-top:2px;">bom nível</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Heatmap title -->
+        <div data-object="true" data-object-type="textbox"
+            style="position:absolute; left:128px; top:622px; width:1316px; z-index:10;" id="fabric-obj-6-1781543257028">
+            <div style="font-family:'Space Grotesk'; font-size:15px; font-weight:600; color:#fff;">Mapa de calor —
+                Análises psicossociais</div>
+            <div style="font-size:12px; color:var(--text-light-3); margin-top:2px;">Visão geral e setorial para o
+                período selecionado, com ênfase na criticidade por fator psicossocial.</div>
+        </div>
+
+        <!-- Heatmap GRID -->
+        <div data-object="true" data-object-type="textbox"
+            style="position:absolute; left:128px; top:680px; width:1316px; z-index:10;" id="fabric-obj-7-1781543257028">
+            <div style="display:grid; grid-template-columns: 170px repeat(8, 1fr); gap:6px; align-items:center;">
+                <!-- Column headers -->
+                <div></div>
+                <div class="col-label">Atendimento</div>
+                <div class="col-label">Comercial</div>
+                <div class="col-label">Diretoria</div>
+                <div class="col-label">Financeiro</div>
+                <div class="col-label">Marketing</div>
+                <div class="col-label">Operações</div>
+                <div class="col-label">RH</div>
+                <div class="col-label">DE</div>
+
+                <!-- Row 1: Assédio -->
+                <div class="row-label">Assédio</div>
+                <div class="heat-cell c-atencao"><span class="v">6</span><span class="lbl">Atenção</span></div>
+                <div class="heat-cell c-moderado"><span class="v">8</span><span class="lbl">Moderado</span></div>
+                <div class="heat-cell c-atencao"><span class="v">6</span><span class="lbl">Atenção</span></div>
+                <div class="heat-cell c-atencao"><span class="v">5</span><span class="lbl">Atenção</span></div>
+                <div class="heat-cell c-moderado"><span class="v">8</span><span class="lbl">Moderado</span></div>
+                <div class="heat-cell c-atencao"><span class="v">6</span><span class="lbl">Atenção</span></div>
+                <div class="heat-cell c-atencao"><span class="v">4</span><span class="lbl">Atenção</span></div>
+                <div class="heat-cell c-moderado"><span class="v">8</span><span class="lbl">Moderado</span></div>
+
+                <!-- Row 2: Clareza de papel -->
+                <div class="row-label">Clareza de papel/função</div>
+                <div class="heat-cell c-atencao"><span class="v">4</span><span class="lbl">Atenção</span></div>
+                <div class="heat-cell c-atencao"><span class="v">4</span><span class="lbl">Atenção</span></div>
+                <div class="heat-cell c-atencao"><span class="v">4</span><span class="lbl">Atenção</span></div>
+                <div class="heat-cell c-atencao"><span class="v">4</span><span class="lbl">Atenção</span></div>
+                <div class="heat-cell c-atencao"><span class="v">4</span><span class="lbl">Atenção</span></div>
+                <div class="heat-cell c-atencao"><span class="v">4</span><span class="lbl">Atenção</span></div>
+                <div class="heat-cell c-atencao"><span class="v">4</span><span class="lbl">Atenção</span></div>
+                <div class="heat-cell c-atencao"><span class="v">4</span><span class="lbl">Atenção</span></div>
+
+                <!-- Row 3: Controle e Autonomia -->
+                <div class="row-label">Controle e Autonomia</div>
+                <div class="heat-cell c-atencao"><span class="v">4</span><span class="lbl">Atenção</span></div>
+                <div class="heat-cell c-atencao"><span class="v">4</span><span class="lbl">Atenção</span></div>
+                <div class="heat-cell c-atencao"><span class="v">4</span><span class="lbl">Atenção</span></div>
+                <div class="heat-cell c-atencao"><span class="v">4</span><span class="lbl">Atenção</span></div>
+                <div class="heat-cell c-atencao"><span class="v">4</span><span class="lbl">Atenção</span></div>
+                <div class="heat-cell c-atencao"><span class="v">4</span><span class="lbl">Atenção</span></div>
+                <div class="heat-cell c-atencao"><span class="v">4</span><span class="lbl">Atenção</span></div>
+                <div class="heat-cell c-atencao"><span class="v">4</span><span class="lbl">Atenção</span></div>
+
+                <!-- Row 4: Demandas (Sobrecarga) -->
+                <div class="row-label">Demandas (Sobrecarga)</div>
+                <div class="heat-cell c-critico"><span class="v">12</span><span class="lbl">Crítico</span></div>
+                <div class="heat-cell c-moderado"><span class="v">8</span><span class="lbl">Moderado</span></div>
+                <div class="heat-cell c-atencao"><span class="v">4</span><span class="lbl">Atenção</span></div>
+                <div class="heat-cell c-control"><span class="v">3</span><span class="lbl">Controlado</span></div>
+                <div class="heat-cell c-control"><span class="v">3</span><span class="lbl">Controlado</span></div>
+                <div class="heat-cell c-atencao"><span class="v">5</span><span class="lbl">Atenção</span></div>
+                <div class="heat-cell c-control"><span class="v">3</span><span class="lbl">Controlado</span></div>
+                <div class="heat-cell c-atencao"><span class="v">4</span><span class="lbl">Atenção</span></div>
+
+                <!-- Row 5: Subcarga -->
+                <div class="row-label">Subcarga (baixa demanda)</div>
+                <div class="heat-cell c-atencao"><span class="v">4</span><span class="lbl">Atenção</span></div>
+                <div class="heat-cell c-control"><span class="v">3</span><span class="lbl">Controlado</span></div>
+                <div class="heat-cell c-control"><span class="v">3</span><span class="lbl">Controlado</span></div>
+                <div class="heat-cell c-control"><span class="v">3</span><span class="lbl">Controlado</span></div>
+                <div class="heat-cell c-control"><span class="v">3</span><span class="lbl">Controlado</span></div>
+                <div class="heat-cell c-atencao"><span class="v">4</span><span class="lbl">Atenção</span></div>
+                <div class="heat-cell c-control"><span class="v">3</span><span class="lbl">Controlado</span></div>
+                <div class="heat-cell c-control"><span class="v">3</span><span class="lbl">Controlado</span></div>
+
+                <!-- Row 6: Mudanças Organizacionais -->
+                <div class="row-label">Gestão de Mudanças</div>
+                <div class="heat-cell c-atencao"><span class="v">5</span><span class="lbl">Atenção</span></div>
+                <div class="heat-cell c-atencao"><span class="v">4</span><span class="lbl">Atenção</span></div>
+                <div class="heat-cell c-atencao"><span class="v">4</span><span class="lbl">Atenção</span></div>
+                <div class="heat-cell c-atencao"><span class="v">4</span><span class="lbl">Atenção</span></div>
+                <div class="heat-cell c-atencao"><span class="v">4</span><span class="lbl">Atenção</span></div>
+                <div class="heat-cell c-atencao"><span class="v">4</span><span class="lbl">Atenção</span></div>
+                <div class="heat-cell c-atencao"><span class="v">4</span><span class="lbl">Atenção</span></div>
+                <div class="heat-cell c-atencao"><span class="v">4</span><span class="lbl">Atenção</span></div>
+            </div>
+        </div>
+
+        <!-- Legend (right side of dashboard) -->
+        <div data-object="true" data-object-type="textbox"
+            style="position:absolute; left:1496px; top:680px; width:330px; z-index:10;" id="fabric-obj-8-1781543257028">
+            <div
+                style="font-family:'Space Grotesk'; font-size:13px; letter-spacing:.18em; text-transform:uppercase; color:var(--text-light-3); font-weight:600;">
+                Criticidade</div>
+            <div style="margin-top:18px; display:flex; flex-direction:column; gap:14px;">
+                <div style="display:flex; align-items:center; gap:14px;"><span
+                        style="width:18px; height:18px; background:var(--risk-control); border-radius:5px;"></span><span
+                        style="color:#fff; font-size:18px;">Controlado</span></div>
+                <div style="display:flex; align-items:center; gap:14px;"><span
+                        style="width:18px; height:18px; background:var(--risk-atencao); border-radius:5px;"></span><span
+                        style="color:#fff; font-size:18px;">Atenção</span></div>
+                <div style="display:flex; align-items:center; gap:14px;"><span
+                        style="width:18px; height:18px; background:var(--risk-moderado); border-radius:5px;"></span><span
+                        style="color:#fff; font-size:18px;">Moderado</span></div>
+                <div style="display:flex; align-items:center; gap:14px;"><span
+                        style="width:18px; height:18px; background:var(--risk-critico); border-radius:5px;"></span><span
+                        style="color:#fff; font-size:18px;">Crítico</span></div>
+            </div>
+
+            <div
+                style="margin-top:38px; padding:18px; background:rgba(0,229,255,0.08); border:1px solid rgba(0,229,255,0.30); border-radius:14px;">
+                <div
+                    style="font-family:'Space Grotesk'; font-size:12px; letter-spacing:.18em; text-transform:uppercase; color:var(--neon-cyan); font-weight:600;">
+                    Alerta detectado</div>
+                <div style="color:#fff; font-size:18px; line-height:1.4; margin-top:8px; font-weight:500;">Atendimento ·
+                    Sobrecarga = <strong style="color:var(--risk-critico);">12 · Crítico</strong></div>
+                <div style="color:var(--text-light-2); font-size:14px; margin-top:8px; line-height:1.4;">Plano de ação
+                    imediato disparado automaticamente.</div>
+            </div>
+        </div>
+
+        <div data-object="true" data-object-type="textbox"
+            style="position:absolute; left:96px; bottom:32px; z-index:10;" id="fabric-obj-9-1781543257028">
+            <span style="font-size:14px; color:var(--text-light-3);">Recriação fiel do painel real da plataforma · dados
+                de demonstração.</span>
+        </div>
+
+    </div>
+
+
+</body>
+
+</html>

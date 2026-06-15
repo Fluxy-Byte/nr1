@@ -1,0 +1,138 @@
+/* Gamefic NR-1 — Theme tokens */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Space+Grotesk:wght@500;600;700&display=swap');
+
+:root {
+    /* Dark palette (abertura / encerramento / hero) */
+    --bg-dark: #0a0a1f;
+    --bg-dark-2: #0f0f2d;
+    --bg-dark-3: #14143d;
+
+    /* Light palette (miolo) */
+    --bg-light: #f6f7fb;
+    --bg-light-2: #ffffff;
+    --bg-light-card: #ffffff;
+    --bg-light-soft: #eef0f7;
+
+    /* Accents (Gamefic neon) */
+    --neon-cyan: #00e5ff;
+    --neon-green: #00ff8a;
+    --neon-yellow: #ffd60a;
+    --neon-magenta: #b347ff;
+    --neon-blue: #3a7bff;
+
+    /* Text */
+    --text-dark: #0a0a1f;
+    --text-dark-2: #2a2a3d;
+    --text-mute: #6b6b85;
+    --text-light: #ffffff;
+    --text-light-2: rgba(255, 255, 255, 0.78);
+    --text-light-3: rgba(255, 255, 255, 0.55);
+
+    /* Borders */
+    --border-light: #e5e7ef;
+    --border-dark: rgba(255, 255, 255, 0.10);
+
+    /* Risk colors (heatmap) */
+    --risk-control: #1fbf6a;
+    --risk-atencao: #f3c30f;
+    --risk-moderado: #ff8a1a;
+    --risk-critico: #e3393a;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    font-family: 'Inter', system-ui, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    color: var(--text-dark);
+}
+
+/* Logo lockup — reusable */
+.gf-logo {
+    display: inline-flex;
+    align-items: center;
+    gap: 14px;
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+}
+
+.gf-logo .gf-mark {
+    width: 44px;
+    height: 44px;
+    border-radius: 12px;
+    background: conic-gradient(from 200deg at 50% 50%,
+            var(--neon-cyan) 0deg, var(--neon-magenta) 120deg,
+            var(--neon-blue) 240deg, var(--neon-cyan) 360deg);
+    position: relative;
+}
+
+.gf-logo .gf-mark::after {
+    content: "";
+    position: absolute;
+    inset: 9px;
+    border-radius: 7px;
+    background: var(--bg-dark);
+}
+
+.gf-logo .gf-mark::before {
+    content: "";
+    position: absolute;
+    inset: 16px;
+    border-radius: 4px;
+    background: linear-gradient(135deg, var(--neon-cyan), var(--neon-green));
+}
+
+.gf-logo.dark .gf-mark::after {
+    background: var(--bg-light-2);
+}
+
+.gf-logo .gf-word {
+    font-size: 30px;
+    color: var(--text-light);
+}
+
+.gf-logo.dark .gf-word {
+    color: var(--text-dark);
+}
+
+/* Eyebrow tag */
+.eyebrow {
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 600;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    font-size: 16px;
+    color: var(--neon-blue);
+}
+
+.eyebrow.on-dark {
+    color: var(--neon-cyan);
+}
+
+/* Decorative grid for dark slides */
+.dot-grid {
+    background-image:
+        radial-gradient(circle at 1px 1px, rgba(255, 255, 255, 0.08) 1px, transparent 0);
+    background-size: 36px 36px;
+}
+
+/* Neon ring */
+.neon-ring {
+    border-radius: 999px;
+    background: conic-gradient(from 90deg,
+            var(--neon-cyan), var(--neon-green),
+            var(--neon-yellow), var(--neon-magenta),
+            var(--neon-blue), var(--neon-cyan));
+    filter: blur(0.3px);
+}
+
+.logo-gamefic {
+    border-radius: 20px;
+    width: 200px;
+}
