@@ -13,19 +13,15 @@
     "playlist": [
         "slides/01-abertura.html",
         "slides/02-o-que-e-nr1.html",
-        "slides/03-conceitos-gro-pgr.html",
+        "slides/03-diferenciais.html",
         "slides/04-13-fatores.html",
-        "slides/05-linha-do-tempo.html",
-        "slides/06-o-que-mudou.html",
-        "slides/07-prazos-multas.html",
-        "slides/08-dados-brasil.html",
-        "slides/09-despreparo-mercado.html",
-        "slides/10-solucao-gamefic.html",
-        "slides/11-pilar-diagnostico.html",
-        "slides/12-pilar-mapa-calor.html",
-        "slides/13-pilar-relatorio-acao.html",
-        "slides/14-rachel-amancio.html",
-        "slides/15-politica-comercial.html",
-        "slides/16-cta-final.html"
+        "slides/05-prazos-multas.html",
+        "slides/06-dados-brasil.html",
+        "slides/07-solucao-gamefic.html",
+        "slides/08-pilar-diagnostico.html",
+        "slides/09-pilar-mapa-calor.html",
+        "slides/10-pilar-relatorio-acao.html",
+        "slides/11-rachel-amancio.html",
+        "slides/12-politica-comercial.html"
     ]
 }
